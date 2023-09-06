@@ -4,28 +4,37 @@ public class Conta {
     private String senha;
     private double saldo;
     private int qtdTransacoes;
+    private int qtdMaxTransacoes = 5;
     private Pessoa titular;
 
 
-    public Conta(int numero, String senha, double saldo, int qtdTransacoes, Pessoa titular) {
+    public Conta(int numero, String senha, double saldo, Pessoa titular) {
         this.numero = numero;
         this.senha = senha;
         this.saldo = saldo;
-        this.qtdTransacoes = qtdTransacoes;
+        this.qtdTransacoes = 0;
         this.titular = titular;
     }
 
-    public void pagamento() {
-
+    public String menu() {
+        return """
+                O que você deseja realizar?
+                0 - Logout
+                1 - Pagamento
+                2 - Depósito
+                """;
     }
 
-    public void credito() {
 
+    public boolean pagamento(double valor) {
+        return false;
     }
 
-    public double saldo() {
-        return this.saldo;
+    public boolean credito(double valor) {
+        this.saldo += valor;
+        return true;
     }
+
 
     //region getters and setters
 
@@ -69,6 +78,17 @@ public class Conta {
         this.titular = titular;
     }
 
+    public void adicionarJuros(double juros) {
 
-    //endregion
+    }
+
+    public void adicionarJuros(double juros, int dia) {
+    }
+
+    public int getQtdMaxTransacoes() {
+        return qtdMaxTransacoes;
+    }
+
+
+//endregion
 }

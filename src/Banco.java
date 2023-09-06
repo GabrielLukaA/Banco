@@ -22,6 +22,17 @@ public class Banco {
 
     }
 
+    public Conta procurarConta(int numeroConta) {
+        Conta contaRetornada = null;
+        for (Conta conta : this.contas) {
+            if (conta.getNumero() == numeroConta) {
+                contaRetornada = conta;
+                break;
+            }
+        }
+        return contaRetornada;
+    }
+
 
     //region getters and setters
 
